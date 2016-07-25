@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Hamster Heaven</title>
+	<link type="text/css" rel="stylesheet" href="css/styles.css"/>
+	<!-- jQuery: Grab Google CDN jQuery. fall back to local if necessary -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script>!window.jQuery && document.write('<script src="jquery-1.4.1.min.js"><\/script>')</script>
+	
+	<!-- The raptorize file  -->
+	<script src="jquery.raptorize.1.0.js"></script>
+	
+	<!-- For the button version -->
+	<script type="text/javascript">
+		$(window).load(function() {
+			$('.button').raptorize();
+		});
+	</script>
+	
+	<!-- For the Konami Code version -->
+	<script type="text/javascript">
+		$(window).load(function() {
+			$('.button').raptorize({
+				'enterOn' : 'konami-code'
+			});
+		});
+	</script>
+	
+	<!-- For the Timer version -->
+	<!-- <script type="text/javascript">
+		$(window).load(function() {
+			$('.button').raptorize({
+				'enterOn' : 'timer',
+				'delayTime' : 2000
+			});
+		});
+	</script>	
+	-->
+
+
+	</head>
+	<body ng-app="myApp" ng-controller="MainController">
+
+		<header>
+             <h1>Hi Gabe! Welcome to {{ title }} </h1>
+             <h5>Vote for your favorite hamster!</h5>
+        </header>
+        <div>
+			<ul class="main">
+				<li id="box" ng-repeat="hamster in hamsters" ng-class="{{ hamster.name | lowercase }}"><p class="likes" ng-click="plusOne($index)">
+                + {{ hamster.likes }}</p>{{hamster.name}}<img src="raptor.png" alt="hamster" width="200"/></li>
+			</ul>
+		</div>
+		<div class="info">
+			<h3>{{hamsters[2].name}}! {{hamsters[1].name}}! {{hamsters[0].name | uppercase }}!</h3>
+			<h3>It's time to eat guys! </h3>
+				<li ng-repeat="hamster in hamsters" ng-class="{{ hamsters.name }}" ng-click="getRandomInt(1, 9)">{{hamster.name}} wants {{hamster.food | uppercase}}!</li>
+		</div>
+<!-- <h1>Hello!</h1>
+	<h2>Tell us about yourself:</h2>
+	<input type="text" ng-model="first" placeholder="first name" /><br/>
+	<input type="text" ng-model="age" placeholder="age" /><br />
+	<input type="text" ng-model="time" placeholder="your favorite time of day" /><br />
+	<input type="text" ng-model="food" placeholder="your favorite food" /><br />
+	<input type="text" ng-model="pet" placeholder="your favorite animal" /><br />
+	<p>Cat vs. Dog: </p>
+		cat<input type="radio" ng-model="cat" name="true" value="cat"/>
+		dog<input type="radio" ng-model="dog" name="true" value="dog"/>
+
+	<input type="text" ng-model="number" placeholder="favorite number" />
+	<h3>Thank you, {{first}}! You will be {{age + 20}} in twenty years. You will be having {{food}} in the {{time}} with a beautiful {{pet}} and a lovely {{cat || dog}}. 2 + 2 = {{2 + 2}}</h3>
+ -->
+<!-- 		<div ng-init="myObj={test: 1, test2: 2}">
+			<li ng-repeat="(key, value) in myObj">{{myObj[key]}} is {{myObj}}</li>
+		</div> --> 
+
+
+	<footer><h3><a href="#" class="button">Click me</a> to see a real hamster.</h3><p>Get your own hamster (Raptorize kit from <a href="http://zurb.com/playground/jquery-raptorize">Zurb Studios</a></footer>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+	<script src="scripts.js"></script>
+    <script src="controller.js"></script>
+	</body>
+
+</html>
